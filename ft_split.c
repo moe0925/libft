@@ -1,17 +1,12 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
+char	**ft_split(char const *str, char const *charset);
 
-char	**ft_split(char *str, char *charset);
-int		ft_strlen(char *str);
-char	*ft_strcpy(char *dest, char *src);
-
-char *strndup(const char *s1, size_t n);
-// char	*ft_strdup(const char *src,  *amount)
+char	*ft_strdup2(char *src, int *amount)
 {
 	char	*p;
 	char	*temp;
 
-	p = (char *)malloc(sizeof(char) * (n + 1));
+	p = (char *)malloc(sizeof(char) * (*amount + 1));
 	temp = p;
 	if (!p)
 		return (0);
@@ -67,28 +62,33 @@ int	space_count(char *str, char *charset)
 		return (count);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *str, char const *charset)
 {
 	int		amount;
 	char	**target;
 	int		i;
+	char	*str2;
+	char	*charset2;
+
+	str2 = (char*)str;
+	charset2 = (char*)charset;
 
 	i = 0;
 	amount = 0;
-	target = (char **)malloc(sizeof(char *) * (space_count(str, charset) + 1));
-	while (*str)
+	target = (char **)malloc(sizeof(char *) * (space_count(str2, charset2) + 1));
+	while (*str2)
 	{
-		if (check_charset(str, charset))
+		if (check_charset(str2, charset2))
 		{
 			if (amount != 0)
-				target[i++] = ft_strdup((str - amount), &amount);
+				target[i++] = ft_strdup2((str2 - amount), &amount);
 		}
 		else
 			amount++;
-		str++;
+		str2++;
 	}
 	if (amount != 0)
-		target[i++] = ft_strdup((str - amount), &amount);
+		target[i++] = ft_strdup2((str2 - amount), &amount);
 	target[i] = 0;
 	return (target);
 }

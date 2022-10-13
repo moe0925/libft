@@ -8,7 +8,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	str = (unsigned char *)b ;
 	c2 = (char)c;
 
-
 	i = 0;
 	while (i < len)
 	{	
@@ -20,16 +19,16 @@ void	*ft_memset(void *b, int c, size_t len)
 
 
 
-int main ()
-{
-	unsigned int len;
+// int main ()
+// {
+// 	unsigned int len;
 
-	char c1[] = "abcde";
-	char src = '*';
-	len = 7;
-    ft_memset(c1,src,len);
-	printf("%s",(char*)ft_memset(c1,src,len));
-}
+// 	char c1[] = "abcde";
+// 	char src = '*';
+// 	len = 7;
+//     ft_memset(c1,src,len);
+// 	printf("%s",(char*)ft_memset(c1,src,len));
+// }
 
 /* char	*ft_strcpy(char *dest, char *src)
 {

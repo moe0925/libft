@@ -1,32 +1,23 @@
 #include "libft.h" 
-int		ft_strlen(char *str);
 char	*ft_strcpy(char *dest, char *src);
 
 char	*ft_strdup(const char *src)
 {
-	const char	*p;
-
-	if (src == NULL)
+	char	*p;
+	char	*src2;
+	src2 = (char*)src;
+	if (src2 == NULL)
 		return (NULL);
-	p = malloc(ft_strlen(src) + 1);
+	p = malloc(ft_strlen(src2) + 1);
+	
 	if (p)
 	{
-		ft_strcpy (p, src);
+		ft_strcpy (p, src2);
 	}
 	return (p);
 }
 
-int	ft_strlen(char *str)
-{
-	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -42,10 +33,10 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-#include <stdio.h>
-int main()
-{
-	char str1[] = "abcde"; 
-	printf("%s\n",ft_strdup(str1));
-	return (0);
-}
+// #include <stdio.h>
+// int main()
+// {
+// 	char str1[] = "abcde"; 
+// 	printf("%s\n",ft_strdup(str1));
+// 	return (0);
+// }

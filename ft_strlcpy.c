@@ -1,14 +1,15 @@
-unsigned int	ft_strlcpy(char * dest, char *src, unsigned int size)
+#include "libft.h"
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < (size - 1))
+	while (i < (dstsize - 1))
 	{	
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	dst[i] = '\0';
 	i = 0;
 	while (src[i] != '\0')
 	{
@@ -17,14 +18,14 @@ unsigned int	ft_strlcpy(char * dest, char *src, unsigned int size)
 	return (i);
 }
 
-/* #include <stdio.h>
-int main()
-{
-	char a[]= "123";
-	char b[]= "abcde";
-	ft_strlcpy(a,b,3);
-	printf("%c",a[0]);
-    printf("%c",a[1]);
-    printf("%c",a[2]);
-}
-  */
+// #include <stdio.h>
+// int main()
+// {
+// 	char a[]= "123";
+// 	char b[]= "abcde";
+// 	ft_strlcpy(a,b,3);
+// 	printf("%c",a[0]);
+//     printf("%c",a[1]);
+//     printf("%c",a[2]);
+// }
+ 

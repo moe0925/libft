@@ -6,7 +6,7 @@ void *ft_memcpy(void *buf1, const void *buf2, size_t n)
 	unsigned char *src;
 	str = (unsigned char *)buf1;
 	src = (unsigned char *)buf2;
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
@@ -17,16 +17,16 @@ void *ft_memcpy(void *buf1, const void *buf2, size_t n)
 	return (str);
 }
 
-int main ()
-{
-	unsigned int len;
+// int main ()
+// {
+// 	unsigned int len;
 
-	char c1[] = "abcde";
-	char c2[] = "ABCDE";
-	len = 6;
-    ft_memcpy(c1,c2,len);
-	printf("%s",(char*)ft_memcpy(c1,c2,len));
-}
+// 	char c1[] = "abcde";
+// 	char c2[] = "ABCDE";
+// 	len = 6;
+//     ft_memcpy(c1,c2,len);
+// 	printf("%s",(char*)ft_memcpy(c1,c2,len));
+// }
 
 
 // #include "libft.h"

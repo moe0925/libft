@@ -1,34 +1,46 @@
 #include "libft.h"
-
-char *ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	char	*str;
-
-	if (size == 0)
-	{
-		str = malloc(sizeof(char) * (malloc_len(strs, size, sep) + 1));
-		*str = 0;
-		return (str);
-	}
-	str = malloc(sizeof(char) * (malloc_len(strs, size, sep) + 1));
-	if (!(str))
-		return (NULL);
-	*str = 0;
+	int	i;
+	int	j;
+	char *ss1;
+	char *ss2;
+	char *p;
+	
+	ss1 = (char *)s1;
+	ss2 = (char *)s2;
 	i = 0;
-	while (i < size)
+	j = 0;
+	p = malloc(sizeof(char) * (ft_strlen(ss1) + ft_strlen(ss2) + 1));
+	if (!p)
+		return(NULL);
+	while (ss1[i] != '\0')
+		{
+			p[i] = ss1[i];
+			i++;
+		}
+	while (ss2[j] != '\0')
 	{
-		ft_strcat(str, strs[i]);
-		if (i < size - 1)
-			ft_strcat(str, sep);
-		i++;
+		p[i + j] = ss2[j];
+		j++;
 	}
-	return (str);
+	p[i + j] = 0;
+	return (p);
 }
 
 
+//  #include <stdio.h>
+// int	main(void)
+// {
+// 	char *str1;
+// 	char *str2;
 
+// 	str1 = "";
+// 	str2 = "";
+// 	printf("%s",ft_strjoin(str1,str2));
 
+// 	return (0);
+// }
 
 // #include <stdlib.h>
 // int	malloc_len(char **strs, int size, char *sep);

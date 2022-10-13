@@ -2,7 +2,7 @@
 
 char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int i;
+	size_t i;
 	int j;
 	char *p;
 
@@ -31,17 +31,17 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 }
 
 
-int main()
-{
-	const char *largestring = "Foo Bar Baz";
-	const char *smallstring = "Bar";
-	char *ptr;
-	char *ptr2;
+// int main()
+// {
+// 	const char *largestring = "Foo Bar Baz";
+// 	const char *smallstring = "Bar";
+// 	char *ptr;
+// 	char *ptr2;
 
-	ptr = strnstr(largestring, smallstring, 5);
-	printf("%s\n",ptr);
+// 	ptr = strnstr(largestring, smallstring, 5);
+// 	printf("%s\n",ptr);
 
-	printf("----------------------------------------------------\n");
-	ptr2 = strnstr(largestring, smallstring, 5);
-	printf("%s",ptr2);
-}
+// 	printf("----------------------------------------------------\n");
+// 	ptr2 = strnstr(largestring, smallstring, 5);
+// 	printf("%s",ptr2);
+// }

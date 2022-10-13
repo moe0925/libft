@@ -1,7 +1,7 @@
 #include "libft.h"
 void *ft_memchr(const void *buf, int ch, size_t n)
 {
-	int i;
+	size_t i;
 	unsigned char *str;
 	str = (unsigned char *)buf;
 
@@ -9,7 +9,7 @@ void *ft_memchr(const void *buf, int ch, size_t n)
     
     while(i < n)
     {
-        if (str[i] == ch)
+        if (str[i] == (char)ch)
             return (&str[i]);
         else
             i++;
@@ -17,9 +17,8 @@ void *ft_memchr(const void *buf, int ch, size_t n)
     return (NULL);
 }
 
-#include        <stdio.h>
-#include        <string.h>
-
+// #include        <stdio.h>
+// #include        <string.h>
 // int main(void)
 // {
 //         char str[] = "abcdef\0ghij";    /* 途中に空文字のある文字列 */

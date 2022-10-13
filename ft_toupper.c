@@ -12,12 +12,12 @@ int ft_toupper(int c)
 
 }
 
-int main ()
-{
-    int c;
-    // c = toupper('a');
-    // printf("aを大文字に変換→%c\n",c);
-    c = ft_toupper('a');
-    printf("aを大文字に変換→%c\n",c);
-}
+// int main ()
+// {
+//     int c;
+//     // c = toupper('a');
+//     // printf("aを大文字に変換→%c\n",c);
+//     c = ft_toupper('a');
+//     printf("aを大文字に変換→%c\n",c);
+// }
 

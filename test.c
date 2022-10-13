@@ -1,3 +1,31 @@
+char	**ft_split(char const *str, char const *charset)
+{
+	int		amount;
+	char	**target;
+	int		i;
+
+	i = 0;
+	amount = 0;
+	target = (char **)malloc(sizeof(char *) * (space_count(str, charset) + 1));
+	while (*str)
+	{
+		if (check_charset(str, charset))
+		{
+			if (amount != 0)
+				target[i++] = ft_strdup((str - amount), &amount);
+		}
+		else
+			amount++;
+		str++;
+	}
+	if (amount != 0)
+		target[i++] = ft_strdup((str - amount), &amount);
+	target[i] = 0;
+	return (target);
+}
+
+
+
 #include <stdlib.h> 
 char	*ft_strdup(char *src);
 int		ft_strlen(char *str);
