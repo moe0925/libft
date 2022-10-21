@@ -29,20 +29,20 @@ int	ft_atoi(const char *str)
 	return (num * minus);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
  
-int main(void) {
-    char str[8] = "+1";
-    int num;
-	int num2;
+// int main(void) {
+//     char str[8] = "+1";
+//     int num;
+// 	int num2;
 
     
-    // 文字列型からint型への変換
-    num = atoi(str);
-    printf("int型変数numの値は: %d\n", num);
-	num2 = ft_atoi(str);
-    printf("int型変数numの値は: %d\n", num2);
+//     // 文字列型からint型への変換
+//     num = atoi(str);
+//     printf("int型変数numの値は: %d\n", num);
+// 	num2 = ft_atoi(str);
+//     printf("int型変数numの値は: %d\n", num2);
     
-    return 0;
-}
+//     return 0;
+// }

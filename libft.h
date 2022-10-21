@@ -33,7 +33,6 @@ int 			ft_isalnum(int c);
 int 			ft_isascii(int c);
 int 			ft_isprint(int c);
 void			*ft_memset(void *b, int c, size_t len);
-// size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 void 			*ft_memcpy(void *buf1, const void *buf2, size_t n);
 int	            ft_strncmp(const char *s1, const char *s2, size_t n);
 int             ft_memcmp(const void *s1, const void *s2, size_t n);
