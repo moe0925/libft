@@ -27,6 +27,7 @@ void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *src);
 char			*ft_strcpy(char *dest, char *src);
+size_t	        ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int				ft_isalpha(int c);
 int 			ft_isdigit(int c);
 int 			ft_isalnum(int c);
