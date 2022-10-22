@@ -8,8 +8,11 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	p = (char *)haystack;
 	i = 0;
+
 	if (*needle == '\0')
 		return (p);
+	if (*haystack == '\0')
+		return (NULL);
 	else
 	{
     	while (i < len)
@@ -17,7 +20,9 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
         	if (haystack[i] == needle[0])
 			{
 				j = 1;
-				while (needle[j] != '\0' && needle[j] == haystack[i + j])
+				if (needle[1] ==  '\0')
+					return (&p[i]);
+				while (needle[j] != '\0'  && needle[j] == haystack[i + j] && (i+j) < len)
             	{
 					j++;
 					if (needle[j] == '\0')
@@ -33,15 +38,15 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 // int main()
 // {
-// 	const char *largestring = "Foo Bar Baz";
-// 	const char *smallstring = "Bar";
+// 	const char *largestring = "";
+// 	const char *smallstring = "coucou";
 // 	char *ptr;
 // 	char *ptr2;
 
-// 	ptr = strnstr(largestring, smallstring, 5);
+// 	ptr = strnstr(largestring, smallstring, -1);
 // 	printf("%s\n",ptr);
 
 // 	printf("----------------------------------------------------\n");
-// 	ptr2 = strnstr(largestring, smallstring, 5);
+// 	ptr2 = ft_strnstr(largestring, smallstring, -1);
 // 	printf("%s",ptr2);
-// }
+// } 

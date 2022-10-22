@@ -26,6 +26,7 @@ int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *src);
+void            *ft_calloc(size_t count, size_t size);
 char			*ft_strcpy(char *dest, char *src);
 size_t	        ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int				ft_isalpha(int c);

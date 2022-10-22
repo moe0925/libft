@@ -1,26 +1,44 @@
 #include "libft.h"
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
+	size_t	up;
 
+	up = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	else if (dstsize - 1 > ft_strlen(src))   
+		up = ft_strlen(src) ;
+	else 
+		up = dstsize - 1 ;
 	i = 0;
-	while (i < (dstsize - 1) &&  dstsize < strlen(src))
+	while (i < up)
 	{	
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
+	dst[up] = '\0';
 	return (ft_strlen(src));
 }
 
 // #include <stdio.h>
 // int main()
 // {
-// 	char a[]= "123";
-// 	char b[]= "abcde";
-// 	ft_strlcpy(a,b,);
-// 	printf("%c",a[0]);
-//     printf("%c",a[1]);
-//     printf("%c",a[2]);
+// 	char a[]= "1234567890";
+// 	char b[]= "coucou";
+// 	ft_strlcpy(a,b,8);
+// 	// printf("%lu",ft_strlcpy(a,b,3));
+// 	int i ;
+// 	for(i = 0;i<10;i++)
+// 		printf("%c",a[i]);
+// 	printf("----------------------------------------\n");
+// 	char a1[]= "1234567890";
+// 	char b1[]= "coucou";
+// 	strlcpy(a1,b1,8);
+// 	// printf("%lu",strlcpy(a1,b1,3));
+// 	for(i = 0;i<10;i++)
+// 			printf("%c",a1[i]);
 // }
  
+// while ((dstsize - 1 > ft_strlen(src) && i < (dstsize - 1)) &&  !(dstsize - 1 > ft_strlen(src) && i < ft_strlen(src)) )
