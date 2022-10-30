@@ -70,11 +70,12 @@ char **ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
+	str2 = (char*)s;
 	if ((s[0] == '\0' && c == '\0' )|| *s == '\0')
 		return (NULL);
+	
 	i = 0;
 	amount = 0;
-	str2 = (char*)s;
 	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
 	if (!(target))
 		return (NULL);
@@ -96,33 +97,45 @@ char **ft_split(char const *s, char c)
 	return (target);
 }
 
-int main()
-{
-	// printf("%s",result[0]);
-	char **ans;
+// int main()
+// {
+// 	char *src = "      split       this for   me  !       ";
+// 	char **result = ft_split(src, ' ');
+// 	if (!result)
+// 	printf("OK");
+// 	else
+// 	printf("NG");
+// 	// printf("%s",result[0]);
+// 	int i =0;
+// 	while(result[i] != 0)
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	// char **ans;
 	
-	// ans = ft_split("aabbb", 'k');
-	ans = ft_split("kaakbbb", 'k');
-	int i = 0;
-	while(ans[i] != 0)
-	{
-		printf("%s\n", ans[i]);
-		i++;
+// 	// ans = ft_split("aabbb", 'k');
+// 	// ans = ft_split("\0aa\0bbb", '\0');
+// 	// int i = 0;
+// 	// while(ans[i] != 0)
+// 	// {
+// 	// 	printf("%s\n", ans[i]);
+// 	// 	i++;
 
-	}
-	// for(int i= 0;i<10;i++)
-	// {
-	// 	printf("%s\n", ans[i]);
-	// 	printf("%p\n", ans[i]);
-	// 	printf("\n");
-	// }
-	// while (i < 2)
-	// {
-	// 	printf("%s\n", ans[i]);
-	// 	printf("%p\n", ans[i]);
-	// 	printf("\n");
+// 	// }
+// 	// for(int i= 0;i<10;i++)
+// 	// {
+// 	// 	printf("%s\n", ans[i]);
+// 	// 	printf("%p\n", ans[i]);
+// 	// 	printf("\n");
+// 	// }
+// 	// while (i < 2)
+// 	// {
+// 	// 	printf("%s\n", ans[i]);
+// 	// 	printf("%p\n", ans[i]);
+// 	// 	printf("\n");
 
-	// 	i++;
-	// }
-	return (0);
-}
+// 	// 	i++;
+// 	// }
+// 	return (0);
+// }
