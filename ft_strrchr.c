@@ -7,6 +7,7 @@ char *ft_strrchr(const char *s, int c)
 
     i = 0;
 	s2 = (char *)s;
+   
     if (c == '\0')
     {
         while (s2[i] != '\0')

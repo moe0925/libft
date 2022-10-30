@@ -8,6 +8,8 @@ void *ft_memcpy(void *buf1, const void *buf2, size_t n)
 	src = (unsigned char *)buf2;
 	size_t	i;
 
+	if(str == NULL && src == NULL )
+		return(NULL);
 	i = 0;
 	while (i < n)
 	{	
@@ -21,11 +23,17 @@ void *ft_memcpy(void *buf1, const void *buf2, size_t n)
 // {
 // 	unsigned int len;
 
-// 	char c1[] = "abcde";
-// 	char c2[] = "ABCDE";
+// 	char c1[] = "12345";
+// 	char c2[] = "67890";
 // 	len = 6;
 //     ft_memcpy(c1,c2,len);
-// 	printf("%s",(char*)ft_memcpy(c1,c2,len));
+// 	printf("%s\n",(char*)ft_memcpy(NULL,NULL,len));
+// 	printf("-----------------------------");
+// 	char cc1[] = "12345";
+// 	char cc2[] = "67890";
+// 	len = 6;
+//     memcpy(cc1,cc2,len);
+// 	printf("%s",(char*)memcpy(NULL,NULL,len));
 // }
 
 

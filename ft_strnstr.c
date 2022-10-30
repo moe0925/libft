@@ -43,10 +43,10 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 // 	char *ptr;
 // 	char *ptr2;
 
-// 	ptr = strnstr(largestring, smallstring, -1);
+// 	ptr = strnstr(largestring, smallstring, 10);
 // 	printf("%s\n",ptr);
 
 // 	printf("----------------------------------------------------\n");
-// 	ptr2 = ft_strnstr(largestring, smallstring, -1);
+// 	ptr2 = ft_strnstr(largestring, smallstring, 10);
 // 	printf("%s",ptr2);
 // } 

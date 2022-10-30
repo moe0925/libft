@@ -2,8 +2,8 @@
 void *ft_memchr(const void *buf, int ch, size_t n)
 {
 	size_t i;
-	unsigned char *str;
-	str = (unsigned char *)buf;
+	char *str;
+	str = (char *)buf;
 
     i = 0;
     

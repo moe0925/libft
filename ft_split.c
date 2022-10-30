@@ -1,5 +1,4 @@
 #include "libft.h"
-char	**ft_split(char const *str, char const *charset);
 
 char	*ft_strdup2(char *src, int *amount)
 {
@@ -24,21 +23,21 @@ char	*ft_strdup2(char *src, int *amount)
 	return (temp);
 }
 
-int	check_charset(char *str, char *charset)
+int	check_charset(char *str, char c)
 {
-	int	i;
+	// int	i;
 
-	i = 0;
-	while (charset[i] != '\0')
-	{
-		if (charset[i] == *str)
+	// i = 0;
+	// while (charset[i] != '\0')
+	// {
+		if (c == *str)
 			return (1);
-		i++;
-	}
+		// i++;
+	// }
 	return (0);
 }
 
-int	space_count(char *str, char *charset)
+int	space_count(char *str, char c)
 {
 	int	count;
 	int	amount;
@@ -46,7 +45,7 @@ int	space_count(char *str, char *charset)
 	count = 0;
 	while (*str)
 	{
-		if (check_charset(str, charset))
+		if (check_charset(str, c))
 		{
 			if (amount != 0)
 				count++;
@@ -62,23 +61,28 @@ int	space_count(char *str, char *charset)
 		return (count);
 }
 
-char	**ft_split(char const *str, char const *charset)
+char **ft_split(char const *s, char c)
 {
 	int		amount;
 	char	**target;
 	int		i;
 	char	*str2;
-	char	*charset2;
 
-	str2 = (char*)str;
-	charset2 = (char*)charset;
-
+	if (!s)
+		return (NULL);
+	str2 = (char*)s;
+	if ((s[0] == '\0' && c == '\0' )|| *s == '\0')
+		return (NULL);
+	
 	i = 0;
 	amount = 0;
-	target = (char **)malloc(sizeof(char *) * (space_count(str2, charset2) + 1));
+	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
+	if (!(target))
+		return (NULL);
+	// if ((s[0] == '\0' && c == '\0' )|| *s == '\0')
 	while (*str2)
 	{
-		if (check_charset(str2, charset2))
+		if (check_charset(str2, c))
 		{
 			if (amount != 0)
 				target[i++] = ft_strdup2((str2 - amount), &amount);
@@ -95,13 +99,43 @@ char	**ft_split(char const *str, char const *charset)
 
 // int main()
 // {
-// 	char **ans;
-// 	ans = ft_split("a@b@c", "@");
-// 	int i = 0;
-// 	while (ans[i] != 0)
+// 	char *src = "      split       this for   me  !       ";
+// 	char **result = ft_split(src, ' ');
+// 	if (!result)
+// 	printf("OK");
+// 	else
+// 	printf("NG");
+// 	// printf("%s",result[0]);
+// 	int i =0;
+// 	while(result[i] != 0)
 // 	{
-// 		printf("%s\n", ans[i]);
+// 		printf("%s\n", result[i]);
 // 		i++;
 // 	}
+// 	// char **ans;
+	
+// 	// ans = ft_split("aabbb", 'k');
+// 	// ans = ft_split("\0aa\0bbb", '\0');
+// 	// int i = 0;
+// 	// while(ans[i] != 0)
+// 	// {
+// 	// 	printf("%s\n", ans[i]);
+// 	// 	i++;
+
+// 	// }
+// 	// for(int i= 0;i<10;i++)
+// 	// {
+// 	// 	printf("%s\n", ans[i]);
+// 	// 	printf("%p\n", ans[i]);
+// 	// 	printf("\n");
+// 	// }
+// 	// while (i < 2)
+// 	// {
+// 	// 	printf("%s\n", ans[i]);
+// 	// 	printf("%p\n", ans[i]);
+// 	// 	printf("\n");
+
+// 	// 	i++;
+// 	// }
 // 	return (0);
 // }

@@ -6,9 +6,11 @@ char	*ft_strdup(const char *src)
 	char	*p;
 	char	*src2;
 	src2 = (char*)src;
-	if (src2 == NULL)
-		return (NULL);
+	// if (src2 == NULL)
+	// 	return (NULL);
 	p = malloc(ft_strlen(src2) + 1);
+	if (!(p))
+		return (NULL);
 	
 	if (p)
 	{
@@ -36,7 +38,9 @@ char	*ft_strcpy(char *dest, char *src)
 // #include <stdio.h>
 // int main()
 // {
-// 	char str1[] = "abcde"; 
-// 	printf("%s\n",ft_strdup(str1));
+// 	char str1[] = ""; 
+// 	// printf("%s\n",ft_strdup(str1));
+// 	printf("%s\n",ft_strdup(NULL));
+
 // 	return (0);
 // }

@@ -6,6 +6,8 @@ char *ft_substr(char const *s, unsigned int start,size_t len)
 	char *s2;
 	char *p;
 	size_t len_s;
+	if (!s)
+		return (0);
 	len_s = ft_strlen(s);
 	if (len_s < start)
 	{
@@ -68,7 +70,7 @@ char *ft_substr(char const *s, unsigned int start,size_t len)
 // 	char *str = "tripouille";
 // 	int start1 = 100;
 // 	int len1 = 1;
-// 	ft_substr(str,start1,len1);
-// 	printf("%s",ft_substr(str,start1,len1));
+// 	ft_substr(NULL,start1,len1);
+// 	printf("%s",ft_substr(NULL,start1,len1));
 // 	return 0;
 // }

@@ -1,11 +1,18 @@
 #include "libft.h"
 int get_digit(int nbr);
+char *min_ret(void);
+
 
 char *ft_itoa(int n)
 {
 	char *p;
 	int i;
+
+	if (n == -2147483648)
+		return(min_ret());
 	p = malloc(sizeof(char) * (get_digit(n) + 1));
+	if (!p)
+		return (NULL);
 	i = get_digit(n);
 	p[i] = '\0';
 	if (n < 0) 
@@ -33,7 +40,10 @@ int get_digit(int nbr)
 
 	digit = 1;
 	if(nbr < 0)
+	{
 		digit++;
+		nbr = -nbr;
+	}
 	while (nbr / 10 != 0 )
 		{
 			nbr = nbr / 10;
@@ -43,10 +53,28 @@ int get_digit(int nbr)
 	return (digit);
 }
 
+char *min_ret(void)
+{
+	char *p;
+	int i;
+	char min[12];
+
+	i = 0;
+	strlcpy(min,"-2147483648",12);
+	p = malloc(sizeof(char) * 12);
+	while(min[i]!='\0')
+	{
+		p[i] = min[i];
+		i++;
+	}
+	p[12] = '\0';
+	return(p);
+}
+
 // int main(void)
 // {
 //     int ab;
-//     ab = -123;
+//     ab = -2147483648;
 // 	printf("%s",ft_itoa(ab));
 // 	return 0;
 // }

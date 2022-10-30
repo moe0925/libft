@@ -8,7 +8,9 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 
 	str = (unsigned char *)dst;
 	src2 = (unsigned char *)src;
-
+	if(str == NULL && src == NULL )
+		return(NULL);
+	
 	if (src <= dst)
 	{
 		i = len - 1;
@@ -19,7 +21,6 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 		}
 	}
 	else
-	
 	{
 		i = 0;
 		while ((size_t)i < len)

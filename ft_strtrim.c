@@ -35,15 +35,14 @@ char *ft_strtrim(char const *s1, char const *set)
 }
 
 
-#include < publib.h >
 
-int main(void) {
-        文字行[512];
+// int main(void) {
+//         文字行[512];
 
-        while (fgets(line, sizeof(line), stdio) != NULL) {
-                strtrim(行);
-                printf("%s", 行);
-        }
-        0 を返します。
-}
+//         while (fgets(line, sizeof(line), stdio) != NULL) {
+//                 strtrim(行);
+//                 printf("%s", 行);
+//         }
+//         0 を返します。
+// }
  
