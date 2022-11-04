@@ -1,25 +1,22 @@
 #include "libft.h" 
+
 char	*ft_strcpy(char *dest, char *src);
 
 char	*ft_strdup(const char *src)
 {
 	char	*p;
 	char	*src2;
-	src2 = (char*)src;
-	// if (src2 == NULL)
-	// 	return (NULL);
+
+	src2 = (char *)src;
 	p = malloc(ft_strlen(src2) + 1);
 	if (!(p))
 		return (NULL);
-	
 	if (p)
 	{
 		ft_strcpy (p, src2);
 	}
 	return (p);
 }
-
-
 
 char	*ft_strcpy(char *dest, char *src)
 {

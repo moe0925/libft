@@ -1,15 +1,15 @@
 #include "libft.h"
 
-void *ft_memcpy(void *buf1, const void *buf2, size_t n)
+void	*ft_memcpy(void *buf1, const void *buf2, size_t n)
 {
-	unsigned char *str;
-	unsigned char *src;
+	unsigned char	*str;
+	unsigned char	*src;
+	size_t			i;
+
 	str = (unsigned char *)buf1;
 	src = (unsigned char *)buf2;
-	size_t	i;
-
-	if(str == NULL && src == NULL )
-		return(NULL);
+	if (str == NULL && src == NULL )
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{	
@@ -35,8 +35,6 @@ void *ft_memcpy(void *buf1, const void *buf2, size_t n)
 //     memcpy(cc1,cc2,len);
 // 	printf("%s",(char*)memcpy(NULL,NULL,len));
 // }
-
-
 // #include "libft.h"
 // void	*ft_memset(void *b, int c, size_t len )
 // {

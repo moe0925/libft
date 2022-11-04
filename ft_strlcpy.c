@@ -8,9 +8,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	up = 0;
 	if (dstsize == 0)
 		return (ft_strlen(src));
-	else if (dstsize - 1 > ft_strlen(src))   
-		up = ft_strlen(src) ;
-	else 
+	else if (dstsize - 1 > ft_strlen(src))
+		up = ft_strlen(src);
+	else
 		up = dstsize - 1 ;
 	i = 0;
 	while (i < up)
@@ -40,5 +40,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 // 	for(i = 0;i<10;i++)
 // 			printf("%c",a1[i]);
 // }
- 
-// while ((dstsize - 1 > ft_strlen(src) && i < (dstsize - 1)) &&  !(dstsize - 1 > ft_strlen(src) && i < ft_strlen(src)) )
