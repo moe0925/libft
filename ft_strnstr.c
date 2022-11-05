@@ -29,7 +29,9 @@ char	*nstr1(const char *haystack, const char *needle, char *p, size_t len)
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	char	*p;
-
+	
+	if (haystack == NULL && len == 0)
+		return (NULL);
 	p = (char *)haystack;
 	if (*needle == '\0')
 		return (p);
