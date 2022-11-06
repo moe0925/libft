@@ -25,15 +25,8 @@ char	*ft_strdup2(char *src, int *amount)
 
 int	check_charset(char *str, char c)
 {
-	// int	i;
-
-	// i = 0;
-	// while (charset[i] != '\0')
-	// {
-		if (c == *str)
-			return (1);
-		// i++;
-	// }
+	if (c == *str)
+		return (1);
 	return (0);
 }
 
@@ -61,25 +54,11 @@ int	space_count(char *str, char c)
 		return (count);
 }
 
-char **ft_split(char const *s, char c)
+char	**split2(char	*str2, char c, int amount, char **target)
 {
-	int		amount;
-	char	**target;
-	int		i;
-	char	*str2;
+	int	i;
 
-	if (!s)
-		return (NULL);
-	str2 = (char*)s;
-	if ((s[0] == '\0' && c == '\0' )|| *s == '\0')
-		return (NULL);
-	
 	i = 0;
-	amount = 0;
-	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
-	if (!(target))
-		return (NULL);
-	// if ((s[0] == '\0' && c == '\0' )|| *s == '\0')
 	while (*str2)
 	{
 		if (check_charset(str2, c))
@@ -97,33 +76,46 @@ char **ft_split(char const *s, char c)
 	return (target);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	int		amount;
+	char	**target;
+	int		i;
+	char	*str2;
+
+	if (!s)
+		return (NULL);
+	if ((s[0] == '\0' && c == 0))
+	{
+		target = malloc(sizeof(char *) * 1);
+		if (!target)
+			return (NULL);
+		target[0] = NULL;
+		return (target);
+	}
+	str2 = (char *)s;
+	i = 0;
+	amount = 0;
+	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
+	if (!(target))
+		return (NULL);
+	return (split2(str2, c, amount, target));
+}
+
 // int main()
 // {
-// 	char *src = "      split       this for   me  !       ";
-// 	char **result = ft_split(src, ' ');
-// 	if (!result)
-// 	printf("OK");
-// 	else
-// 	printf("NG");
-// 	// printf("%s",result[0]);
-// 	int i =0;
-// 	while(result[i] != 0)
+// 	char **ans;
+// 	// ans = ft_split("aakbbb", 'k');
+// 	ans = ft_split("aakbbb", 'k');
+// 	// printf("%d",ft_split("\0aa\0bbb", '\0'));
+// 	int i = 0;
+// 	while(ans[i] != 0)
 // 	{
-// 		printf("%s\n", result[i]);
+// 		printf("%s\n", ans[i]);
 // 		i++;
 // 	}
-// 	// char **ans;
-	
-// 	// ans = ft_split("aabbb", 'k');
-// 	// ans = ft_split("\0aa\0bbb", '\0');
-// 	// int i = 0;
-// 	// while(ans[i] != 0)
-// 	// {
-// 	// 	printf("%s\n", ans[i]);
-// 	// 	i++;
-
-// 	// }
-// 	// for(int i= 0;i<10;i++)
+// }
+// // 	// for(int i= 0;i<10;i++)
 // 	// {
 // 	// 	printf("%s\n", ans[i]);
 // 	// 	printf("%p\n", ans[i]);
@@ -136,6 +128,20 @@ char **ft_split(char const *s, char c)
 // 	// 	printf("\n");
 
 // 	// 	i++;
+// 	// }
+// 	return (0);
+// }
+
+// int	check_charset(char *str, char c)
+// {
+// 	// int	i;
+
+// 	// i = 0;
+// 	// while (charset[i] != '\0')
+// 	// {
+// 		if (c == *str)
+// 			return (1);
+// 		// i++;
 // 	// }
 // 	return (0);
 // }
