@@ -25,8 +25,15 @@ char	*ft_strdup2(char *src, int *amount)
 
 int	check_charset(char *str, char c)
 {
-	if (c == *str)
-		return (1);
+	// int	i;
+
+	// i = 0;
+	// while (ch[i] != '\0')
+	// {
+		if (c == *str)
+			return (1);
+	// 	i++;
+	// }
 	return (0);
 }
 
@@ -82,6 +89,7 @@ char	**ft_split(char const *s, char c)
 	char	**target;
 	int		i;
 	char	*str2;
+
 
 	if (!s)
 		return (NULL);
