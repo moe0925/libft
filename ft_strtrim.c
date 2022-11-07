@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moeota <moeota@student.42.f    +#+  +:+       +#+        */
+/*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 15:02:54 by moeota       #+#    #+#             */
-/*   Updated: 2022/11/06 15:02:54 by moeota      ###   ########.fr       */
+/*   Created: 2022/11/07 22:58:02 by moeota            #+#    #+#             */
+/*   Updated: 2022/11/07 22:58:03 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
@@ -31,7 +30,7 @@ int index_frontcount(char *str2,char *set2)
 		}
         i++;
     }
-    return (0);
+    return (-1);
 }
 
 int index_backcount(char *str2,char *set2)
@@ -39,17 +38,17 @@ int index_backcount(char *str2,char *set2)
     int len;
     int tmp;
 
-    len = ft_strlen(str2) - 2;
+    len = ft_strlen(str2) - 1;
+    tmp = len;
     while(len >= 0)
     {
         if (check(str2[len],set2) == 1)
 		{
-            tmp = len;
-			return (tmp);
+			return (len);
 		}
         len--;
     }
-    return (0);
+    return (tmp);
 }
 
 
@@ -77,17 +76,24 @@ char *ft_strtrim(char const *s1, char const *set)
     int     start;
     int     end;
 
-	if (!s1 || !set)
+	if (!(s1) || !(set))
 		return (NULL);
+    // if (s1[0] == 0 && set[0] == 0)
+    //     return (NULL);
 	str2 = (char *)s1;
 	set2 = (char *)set;
-
     start = index_frontcount(str2,set2);
     end = index_backcount(str2,set2);
+    if ((start == -1 && end == 0 ) || s1[0] == 0)
+        {
+            target = ft_calloc(1,sizeof(char));
+            return (target);
+        }
+	target = ft_calloc(end - start + 2, sizeof(char));
 
-	target = ft_calloc(start - end + 1, sizeof(char));
 	if (!(target))
 		return (NULL);
+
 	i = start;
 	while (i <= end)
 	{
@@ -99,19 +105,8 @@ char *ft_strtrim(char const *s1, char const *set)
 
 // int main ()
 // {
-// 	char *str = "123421";
-// 	char *set = "12";
+// 	char *str = "";
+// 	char *set = "";
 // 	ft_strtrim(str,set);
-// 	printf("%s",ft_strtrim(str, set));
+// 	printf("%s",(ft_strtrim(str, set)));
 // }
-
-// int main(void) {
-//         文字行[512];
-
-//         while (fgets(line, sizeof(line), stdio) != NULL) {
-//                 strtrim(行);
-//                 printf("%s", 行);
-//         }
-//         0 を返します。
-// }
- 
