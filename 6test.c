@@ -19,7 +19,7 @@ int ft_atoi(const char *str)
 		i++;
 	if (str2[i] == 45)
 	{
-		minus = minus * -1;
+		minus = -1;
 		i++;
 	}
 		// printf ("hi");
