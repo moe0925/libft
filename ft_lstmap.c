@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/07 22:55:01 by moeota            #+#    #+#             */
+/*   Updated: 2022/11/11 01:40:46 by moeota           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    t_list *new_t;
-    t_list *newarg;
+	t_list	*new_t;
+	t_list	*newarg;
 
-    if (!(f) || !(del) || !(lst))
-        return (NULL);
-    newarg = NULL;
-    while (lst != NULL)
-    {
-        new_t = ft_lstnew(f(lst -> content));
-        if (new_t == NULL)
-        {
-            ft_lstclear(&lst, del);
-            return (NULL);
-        }
-        ft_lstadd_back(&newarg, new_t);
-        lst = lst -> next;
-    }
-    return (newarg);
+	if (!(f) || !(del) || !(lst))
+		return (NULL);
+	newarg = NULL;
+	while (lst != NULL)
+	{
+		new_t = ft_lstnew(f(lst -> content));
+		if (new_t == NULL)
+		{
+			ft_lstclear(&lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newarg, new_t);
+		lst = lst -> next;
+	}
+	return (newarg);
 }
 
 // id ft_lstclear(t_list **lst, void (*del)(void*))
@@ -35,11 +47,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 //         (*lst) = lst2;
 //     }
 // }
-
-
-
 //  t_list *tmp;
-
 //     tmp = lst;
 //     if (!f)
 //         return ;
