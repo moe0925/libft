@@ -1,0 +1,39 @@
+=========str===========
+atoi : int型変数numの値は: 0
+ft_atoi : int型変数numの値は: 0
+=========str2===========
+atoi : int型変数numの値は: 65
+ft_atoi : int型変数numの値は: 65
+=========str3===========
+atoi : int型変数numの値は: 0
+ft_atoi : int型変数numの値は: 0
+=========str4===========
+atoi : int型変数numの値は: -1
+ft_atoi : int型変数numの値は: -1
+=========str5===========
+atoi : int型変数numの値は: 0
+ft_atoi : int型変数numの値は: 0
+=========!str6===========
+atoi : int型変数numの値は: -1
+ft_atoi : int型変数numの値は: -1
+=========!str7===========
+atoi : int型変数numの値は: 0
+ft_atoi : int型変数numの値は: 0
+=========!str8===========
+atoi : int型変数numの値は: -1
+ft_atoi : int型変数numの値は: -1
+=========!str9===========
+atoi : int型変数numの値は: 0
+ft_atoi : int型変数numの値は: 0
+=========!str10===========
+atoi : int型変数numの値は: -7
+ft_atoi : int型変数numの値は: -7
+=========!str11===========
+atoi : int型変数numの値は: 1
+ft_atoi : int型変数numの値は: 1
+=========!str12===========
+atoi : int型変数numの値は: 2147483647
+ft_atoi : int型変数numの値は: 2147483647
+=========!str13===========
+atoi : int型変数numの値は: -2147483648
+ft_atoi : int型変数numの値は: -2147483648

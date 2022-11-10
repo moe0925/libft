@@ -6,11 +6,12 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:58 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/08 00:48:35 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/10 14:23:06 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 int	ft_atoi(const char *str)
 {
@@ -24,23 +25,49 @@ int	ft_atoi(const char *str)
 	minus = 1;
 	while (((str2[i] >= 9) && (str2[i] <= 13)) || (str2[i] == 32))
 		i++;
-	if (str2[i] == 43)
-		i++;
-	if (str2[i] == 45)
+	if (str2[i] == 43 || str2[i] == 45)
 	{
-		minus = minus * -1;
-		i++;
+	if (str2[i] == 45)
+			minus =  -1;
+	i++;
 	}
-
+		
 	while ((str2[i] >= 48) && (str2[i] <= 57))
 	{
+		if(num * 100 / 100 != num)//オーバするか
+		{
+			if (minus == 1)
+			{
+				if (num == INT32_MAX / 10 && str[i + 1] > '7')
+					return((int)(num * 10 + str[i + 1] - '0'));
+				if(num <  __LONG_MAX__ / 100 )
+					return((int)(num * 10 + str[i + 1] - '0'));
+				if ((num ==  __LONG_MAX__ / 10 && str[i + 1] < '8'))
+					return((int)(num * 10 + str[i + 1] - '0'));
+				if (num ==  __LONG_MAX__ / 100 && str[i + 1] >= '8')//境界付近
+					return ((int)__LONG_MAX__);
+				if (num > __LONG_MAX__ / 100)
+					return ((int)__LONG_MAX__);
+			}
+			if (minus == -1)
+			{
+				if (num == INT32_MAX / 10 && str[i + 1] > '8') // 
+					return((int)((num * 10 + str[i + 1] - '0') * minus));
+				if(num <  LONG_MAX / 100 )
+					return((int)(num * 10 * minus + str[i + 1] - '0'));
+				if ((num ==  LONG_MAX / 10 && str[i + 1] < '9'))
+					return((int)((num * 10 + str[i + 1] - '0')* minus));
+				if (num ==  LONG_MAX / 100 && str[i + 1] >= '9')//境界付近
+					return ((int)LONG_MIN);
+				if (num > LONG_MAX / 100)
+					return ((int)LONG_MIN);
+			}
+		}
 		num = num + str[i] - 48;
 		num = num * 10;
 		i++;
 	}
 	num = num / 10;
-	// if (num > 2147483647)
-	// 	return ((int)(num));
 	return (num * minus);
 }
 
@@ -87,13 +114,13 @@ int	ft_atoi(const char *str)
 //     char *str5 = "-999999999999999999999999";
 //     char *str6 = "9223372036854775807";
 //     char *str7 = "-9223372036854775808";
-//     char *str8 = "9223372036854775808";
-//     char *str9 = "-9223372036854775809";
+//     char *str8 = "9223372036854775808"; // 8
+//     char *str9 = "-9223372036854775809"; 
 //     char *str10 = "9223372036854775801";
-//     char *str11 = "-9223372036854775807";
+//     char *str11 = "-9223372036854775807"; //7
 //     char *str12 = "2147483647";
 //     char *str13 = "-2147483648";
-//  printf("=========str===========\n");
+// 	 printf("=========str===========\n");
 //     printf("atoi : int型変数numの値は: %d\n", atoi(str));
 //     printf("ft_atoi : int型変数numの値は: %d\n", ft_atoi(str));
 //     printf("=========str2===========\n");
@@ -136,21 +163,21 @@ int	ft_atoi(const char *str)
 // }
 
 
-// #include <stdio.h>
-// #include <stdlib.h>
+// // // #include <stdio.h>
+// // // #include <stdlib.h>
  
-// int main(void) {
-//     char str[8] = "+1";
-//     int num;
-// 	int num2;
+// // // int main(void) {
+// // //     char str[8] = "+1";
+// // //     int num;
+// // // 	int num2;
 
     
-//     // 文字列型からint型への変換
-//     num = atoi(str);
-//     printf("int型変数numの値は: %d\n", num);
-// 	num2 = ft_atoi(str);
-//     printf("int型変数numの値は: %d\n", num2);
+// // //     // 文字列型からint型への変換
+// // //     num = atoi(str);
+// // // //     printf("int型変数numの値は: %d\n", num);
+// // // // 	num2 = ft_atoi(str);
+// // // //     printf("int型変数numの値は: %d\n", num2);
     
-//     return 0;
-// }
+// // //     return 0;
+// // // }
 

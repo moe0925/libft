@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:02 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/08 00:46:27 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/10 14:19:16 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str2 = (char *)s1;
 	set2 = (char *)set;
 	target = trim1(str2, set2);
-	return (trim1(str2, set2));
+	return (target);
 }
 
 // int main ()
 // {
 // 	char *str = "123456";
 // 	char *set = "12";
-// 	ft_strtrim(str,set);
-// 	printf("%s",(ft_strtrim(str, set)));
+// 	char *ret;
+// 	ret = ft_strtrim(str,set);
+// 	printf("%s",ret);
+// 	free(ret);
+// 	system("leaks -q a.out");
+
 // }

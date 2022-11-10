@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:56:39 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/10 15:28:09 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/10 15:02:16 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_strdup2(char *src, int *amount)
 	char	*temp;
 
 	p = (char *)malloc(sizeof(char) * (*amount + 1));
-
 	temp = p;
 	if (!p)
 		return (0);
@@ -38,8 +37,15 @@ char	*ft_strdup2(char *src, int *amount)
 
 int	check_charset(char *str, char c)
 {
-	if (c == *str)
-		return (1);
+	// int	i;
+
+	// i = 0;
+	// while (ch[i] != '\0')
+	// {
+		if (c == *str)
+			return (1);
+	// 	i++;
+	// }
 	return (0);
 }
 
@@ -70,6 +76,7 @@ int	space_count(char *str, char c)
 char	**split2(char	*str2, char c, int amount, char **target)
 {
 	int	i;
+
 	i = 0;
 	while (*str2)
 	{
@@ -94,7 +101,6 @@ char	**ft_split(char const *s, char c)
 	char	**target;
 	int		i;
 	char	*str2;
-	char	*temp;
 
 
 	if (!s)
@@ -113,6 +119,7 @@ char	**ft_split(char const *s, char c)
 	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
 	if (!(target))
 	{
+		free(target);
 		return (NULL);
 	}
 	target = (split2(str2, c, amount, target));
