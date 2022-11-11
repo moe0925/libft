@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:57:44 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:57:45 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/11 11:15:53 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 // int main()
 // {
-// 	const char *largestring = "";
-// 	const char *smallstring = "coucou";
+// 	const char *largestring = "abbbcdefg";
+// 	const char *smallstring = "bbc";
 // 	char *ptr;
 // 	char *ptr2;
 
-// 	ptr = strnstr(largestring, smallstring, 10);
+// 	ptr = strnstr(largestring, smallstring, 20);
 // 	printf("%s\n",ptr);
 
 // 	printf("----------------------------------------------------\n");
-// 	ptr2 = ft_strnstr(largestring, smallstring, 10);
-// 	printf("%s",ptr2);
+// 	ptr2 = ft_strnstr(largestring, smallstring, 20);
+// 	printf("%s\n",ptr2);
 // } 

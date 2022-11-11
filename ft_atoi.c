@@ -6,62 +6,78 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:58 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/10 14:23:06 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/11 11:16:18 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-int	ft_atoi(const char *str)
+int	skip(unsigned char *str2, int *minus)
 {
-	long	   num;
-	int	   i;
-	int		minus;
-	unsigned char *str2 = (unsigned char *)str;
+	int	i;
 
-	num = 0;
 	i = 0;
-	minus = 1;
 	while (((str2[i] >= 9) && (str2[i] <= 13)) || (str2[i] == 32))
 		i++;
 	if (str2[i] == 43 || str2[i] == 45)
 	{
-	if (str2[i] == 45)
-			minus =  -1;
+		if (str2[i] == 45)
+			*minus = -1;
 	i++;
 	}
-		
+	return (i);
+}
+
+int	my_plusatol(long num, unsigned char *str, int i)
+{
+	if (num == INT32_MAX / 10 && str[i + 1] > '7')
+		return ((int)(num * 10 + str[i + 1] - '0'));
+	if (num < __LONG_MAX__ / 100)
+		return ((int)(num * 10 + str[i + 1] - '0'));
+	if ((num == __LONG_MAX__ / 10 && str[i + 1] < '8'))
+		return ((int)(num * 10 + str[i + 1] - '0'));
+	if (num == __LONG_MAX__ / 100 && str[i + 1] >= '8')
+		return ((int)__LONG_MAX__);
+	if (num > __LONG_MAX__ / 100)
+		return ((int)__LONG_MAX__);
+	return (0);
+}
+
+int	my_minusatol(long num, unsigned char *str, int i)
+{
+	if (num == INT32_MAX / 10 && str[i + 1] > '8')
+		return ((int)((num * 10 + str[i + 1] - '0') * (-1)));
+	if (num < LONG_MAX / 100)
+		return ((int)(num * 10 * (-1) + str[i + 1] - '0'));
+	if ((num == LONG_MAX / 10 && str[i + 1] < '9'))
+		return ((int)((num * 10 + str[i + 1] - '0') * (-1)));
+	if (num == LONG_MAX / 100 && str[i + 1] >= '9')
+		return ((int)LONG_MIN);
+	if (num > LONG_MAX / 100)
+		return ((int)LONG_MIN);
+	return (0);
+}
+
+int	ft_atoi(const char *str)
+{
+	long			num;
+	int				i;
+	int				minus;
+	unsigned char	*str2;
+
+	str2 = (unsigned char *)str;
+	num = 0;
+	minus = 1;
+	i = skip(str2, &minus);
 	while ((str2[i] >= 48) && (str2[i] <= 57))
 	{
-		if(num * 100 / 100 != num)//オーバするか
+		if (num * 100 / 100 != num)
 		{
 			if (minus == 1)
-			{
-				if (num == INT32_MAX / 10 && str[i + 1] > '7')
-					return((int)(num * 10 + str[i + 1] - '0'));
-				if(num <  __LONG_MAX__ / 100 )
-					return((int)(num * 10 + str[i + 1] - '0'));
-				if ((num ==  __LONG_MAX__ / 10 && str[i + 1] < '8'))
-					return((int)(num * 10 + str[i + 1] - '0'));
-				if (num ==  __LONG_MAX__ / 100 && str[i + 1] >= '8')//境界付近
-					return ((int)__LONG_MAX__);
-				if (num > __LONG_MAX__ / 100)
-					return ((int)__LONG_MAX__);
-			}
+				return (my_plusatol(num, str2, i));
 			if (minus == -1)
-			{
-				if (num == INT32_MAX / 10 && str[i + 1] > '8') // 
-					return((int)((num * 10 + str[i + 1] - '0') * minus));
-				if(num <  LONG_MAX / 100 )
-					return((int)(num * 10 * minus + str[i + 1] - '0'));
-				if ((num ==  LONG_MAX / 10 && str[i + 1] < '9'))
-					return((int)((num * 10 + str[i + 1] - '0')* minus));
-				if (num ==  LONG_MAX / 100 && str[i + 1] >= '9')//境界付近
-					return ((int)LONG_MIN);
-				if (num > LONG_MAX / 100)
-					return ((int)LONG_MIN);
-			}
+				return (my_minusatol(num, str2, i));
 		}
 		num = num + str[i] - 48;
 		num = num * 10;
@@ -71,44 +87,17 @@ int	ft_atoi(const char *str)
 	return (num * minus);
 }
 
-// int my_atol(const char *str)
+// int main()
 // {
-//    long     num;
-//    int	   i;
-// 	int		minus;
-// 	unsigned char *str2 = (unsigned char *)str;
-
-// 	num = 0;
-// 	i = 0;
-// 	minus = 1;
-// 	while (((str2[i] >= 9) && (str2[i] <= 13)) || (str2[i] == 32))
-// 		i++;
-// 	if (str2[i] == 43)
-// 		i++;
-// 	if (str2[i] == 45)
-// 	{
-// 		minus = minus * -1;
-// 		i++;
-// 	}
-
-// 	while ((str2[i] >= 48) && (str2[i] <= 57))
-// 	{
-// 		num = num + str[i] - 48;
-// 		num = num * 10;
-// 		i++;
-// 	}
-// 	num = num / 10;
-// 	// if (num > 2147483647)
-// 	// 	return ((int)(num));
-// 	return (num * minus);
-
-
+// 	char *str = "-100";
+// 	// ft_atoi(str);
+// 	printf("%d\n", ft_atoi(str));
 // }
 
 // int main(void) 
 // {
 //     char *str = "\t\v\f\r\n \f00-000000060\f50";
-//     char *str2 = "+65";
+//     char *str2 = "     +100";
 //     char *str3 = "\t\v\f\r\n \f-\f\t\n\r     06050";
 //     char *str4 = "99999999999999999999999999";
 //     char *str5 = "-999999999999999999999999";
@@ -161,23 +150,3 @@ int	ft_atoi(const char *str)
 //     printf("ft_atoi : int型変数numの値は: %d\n", ft_atoi(str13));
 //     return (0);
 // }
-
-
-// // // #include <stdio.h>
-// // // #include <stdlib.h>
- 
-// // // int main(void) {
-// // //     char str[8] = "+1";
-// // //     int num;
-// // // 	int num2;
-
-    
-// // //     // 文字列型からint型への変換
-// // //     num = atoi(str);
-// // // //     printf("int型変数numの値は: %d\n", num);
-// // // // 	num2 = ft_atoi(str);
-// // // //     printf("int型変数numの値は: %d\n", num2);
-    
-// // //     return 0;
-// // // }
-
