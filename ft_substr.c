@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:12 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/11 21:55:54 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/13 11:53:15 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*p;
+	char	*p;
 	unsigned int	len_s;
 
 	if (!s)
@@ -64,14 +64,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 // 	return (p);
 // }
 
-int main()
-{
-	char *str = "tripouille";
-	int start1 = 3;
-	int len1 = 100;
-	ft_substr(str,start1,5);
-	// printf("%s",ft_substr(str,start1,len1));
-	system("leaks -q a.out");
+// int main()
+// {
+// 	char *str = "tripouille";
+// 	int start1 = 3;
+// 	int len1 = 100;
+// 	ft_substr(str,start1,5);
+// 	// printf("%s",ft_substr(str,start1,len1));
+// 	system("leaks -q a.out");
 
-	return 0;
-}
+// 	return 0;
+// }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   split2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:56:39 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/10 15:02:16 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 21:20:00 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,9 @@ char	*ft_strdup2(char *src, int *amount)
 
 int	check_charset(char *str, char c)
 {
-	// int	i;
-
-	// i = 0;
-	// while (ch[i] != '\0')
-	// {
+	
 		if (c == *str)
 			return (1);
-	// 	i++;
-	// }
 	return (0);
 }
 
@@ -55,6 +49,7 @@ int	space_count(char *str, char c)
 	int	amount;
 
 	count = 0;
+	amount = 0;
 	while (*str)
 	{
 		if (check_charset(str, c))
@@ -80,7 +75,7 @@ char	**split2(char	*str2, char c, int amount, char **target)
 	i = 0;
 	while (*str2)
 	{
-		if (check_charset(str2, c))
+		if (check_charset(str2, c) )
 		{
 			if (amount != 0)
 				target[i++] = ft_strdup2((str2 - amount), &amount);
@@ -104,13 +99,13 @@ char	**ft_split(char const *s, char c)
 
 
 	if (!s)
-		return (NULL);
+		return (0);
 	if ((s[0] == '\0' && c == 0))
 	{
 		target = malloc(sizeof(char *) * 1);
 		if (!target)
-			return (NULL);
-		target[0] = NULL;
+			return (0);
+		target[0] = 0;
 		return (target);
 	}
 	str2 = (char *)s;
@@ -122,8 +117,7 @@ char	**ft_split(char const *s, char c)
 		free(target);
 		return (NULL);
 	}
-	target = (split2(str2, c, amount, target));
-	return (target);
+	return((split2(str2, c, amount, target)));
 }
 
 // int main()

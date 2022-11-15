@@ -13,6 +13,7 @@ int ft_atoi(const char *str)
 	num = 0;
 	i = 0;
 	minus = 1;
+	
 	while (((str2[i] >= 9) && (str2[i] <= 13)) || (str2[i] == 32))
 		i++;
 	if (str2[i] == 43)

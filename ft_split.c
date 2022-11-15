@@ -1,32 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 22:56:39 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/11 04:19:00 by moeota           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static char	**ft_malloc_error(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	// return (NULL);
-}
-
-char	*ft_strdup2(char *src, int *amount)
+static char	*ft_strdup2(char *src, int *amount)
 {
 	char	*p;
 	char	*temp;
@@ -35,7 +9,6 @@ char	*ft_strdup2(char *src, int *amount)
 
 	temp = p;
 	if (!p)
-		// return (ft_malloc_error(p));
 		return (0);
 	else
 	{
@@ -49,6 +22,7 @@ char	*ft_strdup2(char *src, int *amount)
 	}
 	*p = '\0';
 	return (temp);
+
 }
 
 int	check_charset(char *str, char c)
@@ -64,6 +38,7 @@ int	space_count(char *str, char c)
 	int	amount;
 
 	count = 0;
+	amount = 0;
 	while (*str)
 	{
 		if (check_charset(str, c))
@@ -91,28 +66,14 @@ char	**split2(char	*str2, char c, int amount, char **target)
 		if (check_charset(str2, c))
 		{
 			if (amount != 0)
-			{
 				target[i++] = ft_strdup2((str2 - amount), &amount);
-				if (ft_strdup2((str2 - amount), &amount) == 0)
-				{
-					ft_malloc_error(target);
-					return (NULL);
-				}
-			}	
 		}
 		else
 			amount++;
 		str2++;
 	}
 	if (amount != 0)
-	{
 		target[i++] = ft_strdup2((str2 - amount), &amount);
-		if (ft_strdup2((str2 - amount), &amount) == 0)
-				{
-					ft_malloc_error(target);
-					return (NULL);
-				}
-	}
 	target[i] = 0;
 	return (target);
 }
@@ -121,9 +82,10 @@ char	**ft_split(char const *s, char c)
 {
 	int		amount;
 	char	**target;
-	int		i;
 	char	*str2;
 	char	*temp;
+    int	i;
+
 
 	if (!s)
 		return (NULL);
@@ -136,18 +98,14 @@ char	**ft_split(char const *s, char c)
 		return (target);
 	}
 	str2 = (char *)s;
-	i = 0;
 	amount = 0;
 	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
 	if (!(target))
+	{
 		return (NULL);
+	}
 	
 	target = (split2(str2, c, amount, target));
-	if (split2(str2, c, amount, target) == 0)
-	{
-		free(target);
-		return NULL;
-	}
 	return (target);
 }
 
