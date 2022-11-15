@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-void	ft_putchar(char c, int fd);
-void	ft_putnbr(int nb, int fd);
-void	ex_intmin(int fd);
+static void	ft_putchar(char c, int fd);
+static void	ft_putnbr(int nb, int fd);
+static void	ex_intmin(int fd);
 
-void	ft_putnbr(int nb, int fd)
+static void	ft_putnbr(int nb, int fd)
 {
 	if (nb < 0)
 	{
@@ -32,7 +32,7 @@ void	ft_putnbr(int nb, int fd)
 		ft_putchar(nb + 48, fd);
 }
 
-void	ft_putchar(char c, int fd)
+static void	ft_putchar(char c, int fd)
 {
 	write(fd, &c, 1);
 	return ;
@@ -49,7 +49,7 @@ void	ft_putnbr_fd(int n, int fd)
 	return ;
 }
 
-void	ex_intmin(int fd)
+static void	ex_intmin(int fd)
 {
 	write(fd, "-214748", 7);
 	write(fd, "3648", 4);

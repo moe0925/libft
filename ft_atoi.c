@@ -6,14 +6,14 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:58 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/11 11:16:18 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 22:08:04 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-int	skip(unsigned char *str2, int *minus)
+static int	skip(unsigned char *str2, int *minus)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ int	skip(unsigned char *str2, int *minus)
 	return (i);
 }
 
-int	my_plusatol(long num, unsigned char *str, int i)
+static int	my_plusatol(long num, unsigned char *str, int i)
 {
 	if (num == INT32_MAX / 10 && str[i + 1] > '7')
 		return ((int)(num * 10 + str[i + 1] - '0'));
@@ -44,7 +44,7 @@ int	my_plusatol(long num, unsigned char *str, int i)
 	return (0);
 }
 
-int	my_minusatol(long num, unsigned char *str, int i)
+static int	my_minusatol(long num, unsigned char *str, int i)
 {
 	if (num == INT32_MAX / 10 && str[i + 1] > '8')
 		return ((int)((num * 10 + str[i + 1] - '0') * (-1)));

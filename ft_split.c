@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/07 22:56:32 by moeota            #+#    #+#             */
+/*   Updated: 2022/11/15 22:03:43 by moeota           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	*ft_strdup2(char *src, int *amount)
@@ -6,7 +18,6 @@ static char	*ft_strdup2(char *src, int *amount)
 	char	*temp;
 
 	p = (char *)malloc(sizeof(char) * (*amount + 1));
-
 	temp = p;
 	if (!p)
 		return (0);
@@ -22,17 +33,16 @@ static char	*ft_strdup2(char *src, int *amount)
 	}
 	*p = '\0';
 	return (temp);
-
 }
 
-int	check_charset(char *str, char c)
+static int	check_charset(char *str, char c)
 {
 	if (c == *str)
 		return (1);
 	return (0);
 }
 
-int	space_count(char *str, char c)
+static int	space_count(char *str, char c)
 {
 	int	count;
 	int	amount;
@@ -57,9 +67,10 @@ int	space_count(char *str, char c)
 		return (count);
 }
 
-char	**split2(char	*str2, char c, int amount, char **target)
+static char	**split2(char	*str2, char c, int amount, char **target)
 {
 	int	i;
+
 	i = 0;
 	while (*str2)
 	{
@@ -84,27 +95,16 @@ char	**ft_split(char const *s, char c)
 	char	**target;
 	char	*str2;
 	char	*temp;
-    int	i;
-
 
 	if (!s)
 		return (NULL);
 	if ((s[0] == '\0' && c == 0))
-	{
-		target = malloc(sizeof(char *) * 1);
-		if (!target)
-			return (NULL);
-		target[0] = NULL;
-		return (target);
-	}
+		return (ft_calloc(1, sizeof(char)));
 	str2 = (char *)s;
 	amount = 0;
 	target = (char **)malloc(sizeof(char *) * (space_count(str2, c) + 1));
 	if (!(target))
-	{
 		return (NULL);
-	}
-	
 	target = (split2(str2, c, amount, target));
 	return (target);
 }
@@ -121,6 +121,8 @@ char	**ft_split(char const *s, char c)
 // 		printf("%s\n", ans[i]);
 // 		i++;
 // 	}
+// 		system("leaks -q a.out");
+
 // }
 // // // 	// for(int i= 0;i<10;i++)
 // 	// {

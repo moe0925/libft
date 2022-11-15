@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:12 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/13 11:53:15 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 22:06:14 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*p;
+	char			*p;
 	unsigned int	len_s;
 
 	if (!s)
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	len_s = ft_strlen(s);
 	if (len_s < start || len == 0)
 	{
-		p = ft_calloc(1,sizeof(char));
+		p = ft_calloc(1, sizeof(char));
 		return (p);
 	}
 	else if (len_s - start <= len)
@@ -30,8 +30,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	else
 		p = (char *)malloc(sizeof(char) * len + 1);
 	if (!(p))
-		return(NULL);
-	strlcpy(p, start + s,len + 1);
+		return (NULL);
+	strlcpy(p, start + s, len + 1);
 	return (p);
 }
 

@@ -6,13 +6,14 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:57:44 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/11 11:15:53 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 22:04:39 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*nstr1(const char *haystack, const char *needle, char *p, size_t len)
+static char	*nstr1(const char *haystack, const char *needle,
+					char *p, size_t len)
 {
 	size_t	i;
 	int		j;

@@ -6,17 +6,17 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:54:42 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:54:44 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 22:06:49 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_digit(int nbr);
-char	*min_ret(void);
-char	*int_char(int n, char *p, int i);
+static int		get_digit(int nbr);
+static char		*min_ret(void);
+static char		*int_char(int n, char *p, int i);
 
-char	*int_char(int n, char *p, int i)
+static char	*int_char(int n, char *p, int i)
 {
 	if (n < 0)
 	{
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 	return (int_char(n, p, i));
 }
 
-int	get_digit(int nbr)
+static int	get_digit(int nbr)
 {
 	int	digit;
 
@@ -70,7 +70,7 @@ int	get_digit(int nbr)
 	return (digit);
 }
 
-char	*min_ret(void)
+static char	*min_ret(void)
 {
 	char	*p;
 	int		i;

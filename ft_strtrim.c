@@ -6,15 +6,15 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:02 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/10 14:19:16 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 21:38:55 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check(char c, char *set);
+static int	check(char c, char *set);
 
-int	index_frontcount(char *str2, char *set2)
+static int	index_frontcount(char *str2, char *set2)
 {
 	int	i;
 	int	tmp;
@@ -32,7 +32,7 @@ int	index_frontcount(char *str2, char *set2)
 	return (-1);
 }
 
-int	index_backcount(char *str2, char *set2)
+static int	index_backcount(char *str2, char *set2)
 {
 	int	len;
 	int	tmp;
@@ -50,7 +50,7 @@ int	index_backcount(char *str2, char *set2)
 	return (tmp);
 }
 
-int	check(char c, char *set)
+static int	check(char c, char *set)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ int	check(char c, char *set)
 	return (1);
 }
 
-char	*trim1(char *str2, char *set2)
+static char	*trim1(char *str2, char *set2)
 {
 	char	*target;
 	int		start;

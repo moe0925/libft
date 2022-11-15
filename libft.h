@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:35 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/11 01:56:13 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 21:58:10 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *src);
 void			*ft_calloc(size_t count, size_t size);
-char			*ft_strcpy(char *dest, char *src);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);

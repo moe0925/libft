@@ -6,13 +6,13 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:56:50 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:56:51 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/15 21:40:01 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" 
 
-char	*ft_strcpy(char *dest, char *src);
+static char	*ft_strcpy(char *dest, char *src);
 
 char	*ft_strdup(const char *src)
 {
@@ -30,7 +30,7 @@ char	*ft_strdup(const char *src)
 	return (p);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*move1(unsigned char *str, unsigned char *src2, size_t len)
+static void	*move1(unsigned char *str, unsigned char *src2, size_t len)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ void	*move1(unsigned char *str, unsigned char *src2, size_t len)
 	return (str);
 }
 
-void	*move2(unsigned char *str, unsigned char *src2, size_t len)
+static void	*move2(unsigned char *str, unsigned char *src2, size_t len)
 {
 	int	i;
 
