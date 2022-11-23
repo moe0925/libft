@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:57:44 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/15 22:04:39 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:23:37 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ static char	*nstr1(const char *haystack, const char *needle,
 		{
 			j = 1;
 			if (needle[1] == '\0')
-				return (&p[i]);
+				return (&(p[i]));
 			while (needle[j] != '\0' && needle[j] == haystack[i + j]
 				&& (i + j) < len)
 			{
 				j++;
 				if (needle[j] == '\0')
-					return (&p[i]);
+					return (&(p[i]));
 			}
 		}
 		i++;

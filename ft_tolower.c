@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:17 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:58:18 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:59:15 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 int	ft_tolower(int c)
 {
-	int	c2;
-
 	if (c >= 65 && c <= 90)
-	{
-		c2 = c + 32;
-		return (c2);
-	}
-	else
-		return (c);
+		c = c + 32;
+	return (c);
 }
 
 // int main ()

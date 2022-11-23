@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:35:35 by ootamoeakir       #+#    #+#             */
-/*   Updated: 2022/11/11 03:19:16 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:06:02 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ char	*ft_strchr(const char *s, int c)
 	int		i;
 	char	*s2;
 
+	while (c > 256)
+		c = c % 256;
 	s2 = (char *)s;
 	i = 0;
 	if (c == 0)
 	{
 		while (s2[i] != '\0')
-		{
 			i++;
-		}
-		return (&s2[i]);
+		return (&(s2[i]));
 	}
 	while (s2[i] != '\0')
 	{

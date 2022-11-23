@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:57:15 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:57:16 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:08:03 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	up;
+	int		len;
 
+	len = ft_strlen(src);
 	up = 0;
 	if (dstsize == 0)
-		return (ft_strlen(src));
-	else if (dstsize - 1 > ft_strlen(src))
-		up = ft_strlen(src);
+		return (len);
+	else if (dstsize - 1 > len)
+		up = len;
 	else
 		up = dstsize - 1 ;
 	i = 0;
@@ -31,7 +33,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	dst[up] = '\0';
-	return (ft_strlen(src));
+	return (len);
 }
 
 // #include <stdio.h>

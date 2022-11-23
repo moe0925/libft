@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:56:32 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:56:33 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:59:48 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (!s || !fd)
+	if (!s)
 		return ;
 	while (s[i] != '\0')
 	{
-		write(fd, &s[i], 1);
+		write(fd, &(s[i]), 1);
 		i++;
 	}
 	return ;

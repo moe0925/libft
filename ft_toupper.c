@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:22 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:58:25 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:16:46 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 int	ft_toupper(int c)
 {
-	int	c2;
-
 	if (c >= 97 && c <= 122)
-	{
-		c2 = c - 32;
-		return (c2);
-	}
-	else
-		return (c);
+		c = c - 32;
+	return (c);
 }
 
 // int main ()

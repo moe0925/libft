@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:54:42 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/15 22:06:49 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:12:13 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char	*min_ret(void)
 	char	min[12];
 
 	i = 0;
-	strlcpy(min, "-2147483648", 12);
+	ft_strlcpy(min, "-2147483648", 12);
 	p = malloc(sizeof(char) * 12);
 	while (min[i] != '\0')
 	{

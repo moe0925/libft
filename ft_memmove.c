@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:55:49 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:55:51 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:16:17 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 static void	*move1(unsigned char *str, unsigned char *src2, size_t len)
 {
 	int	i;
-
-	i = len - 1;
+	int len2;
+	
+	len2 = len;
+	i = len2 - 1;
 	while (i >= 0)
 	{	
 		str[i] = src2[i];
@@ -27,10 +29,10 @@ static void	*move1(unsigned char *str, unsigned char *src2, size_t len)
 
 static void	*move2(unsigned char *str, unsigned char *src2, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while ((size_t)i < len)
+	while (i < len)
 	{	
 		str[i] = src2[i];
 		i++;
@@ -49,9 +51,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	if (src <= dst)
 		return (move1(str, src2, len));
-	else
-		return (move2(str, src2, len));
-	return (str);
+	return (move2(str, src2, len));
 }
 
 // int main(void)
