@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:55:49 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/23 17:16:17 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:24:18 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void	*move1(unsigned char *str, unsigned char *src2, size_t len)
 {
 	int	i;
-	int len2;
-	
+	int	len2;
+
 	len2 = len;
 	i = len2 - 1;
 	while (i >= 0)
