@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:56:25 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:56:27 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/28 22:01:36 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 static void	ex_intmin(int fd)
 {
-	write(fd, "-214748", 7);
-	write(fd, "3648", 4);
+	write(fd, "-2147483648", 11);
 }
 
 // int main()

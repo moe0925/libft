@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:55:57 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/23 17:14:42 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/28 21:59:39 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*str;
-	char			c2;
 	size_t			i;
 
 	str = (unsigned char *)b ;

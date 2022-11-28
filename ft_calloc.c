@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:53:50 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/07 22:53:58 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/28 22:06:35 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ void	*ft_calloc(size_t count, size_t size)
 
 	if (size != 0 && count > SIZE_MAX / size)
 		return (NULL);
+	if (count == 0 || size == 0)
+	{
+		p = malloc(1);
+		ft_bzero(p,1);
+		return (p);
+	}
 	p = malloc(count * size);
 	if (!p)
 		return (NULL);
