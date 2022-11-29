@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:56:32 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/15 22:03:43 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/30 01:20:38 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ char	**ft_split(char const *s, char c)
 	int		amount;
 	char	**target;
 	char	*str2;
-	char	*temp;
 
 	if (!s)
 		return (NULL);
