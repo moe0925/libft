@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:58:58 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/30 00:27:29 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/30 00:29:56 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	skip(unsigned char *str2, int *minus)
 	{
 		if (str2[i] == 45)
 			*minus = -1;
-	i++;
+		i++;
 	}
 	return (i);
 }

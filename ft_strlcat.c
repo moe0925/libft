@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:57:09 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/28 21:33:48 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/30 00:29:35 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	while (j + i < dstsize - 1 && temp + len > i + j)
 	{
 		dst[j + i] = src[j];
-			j++;
+		j++;
 	}
 	dst[j + i] = '\0';
 	return (temp + len);
