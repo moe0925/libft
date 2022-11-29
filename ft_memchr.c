@@ -6,7 +6,7 @@
 /*   By: moeota <moeota@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 22:55:18 by moeota            #+#    #+#             */
-/*   Updated: 2022/11/30 07:33:26 by moeota           ###   ########.fr       */
+/*   Updated: 2022/11/30 07:34:36 by moeota           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	*ft_memchr(const void *buf, int ch, size_t n)
 	str = (unsigned char *)buf;
 	ch2 = (unsigned char)ch;
 	i = 0;
-	while (str)
+	while (i < n)
 	{
 		if (*str == ch2)
 			return (str);
-		else
-			str++;
+		str++;
+		i++;
 	}
 	return (NULL);
 }
